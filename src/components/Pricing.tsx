@@ -1,12 +1,13 @@
 "use client";
 
 import { useBooking } from "@/components/BookingModal";
+import { useRegion } from "@/components/RegionContext";
 
 const plans = [
   {
     name: "First Consultation",
-    price: "$39",
-    originalPrice: "$60",
+    priceUSD: 39,
+    originalPriceUSD: 60,
     subtitle: "Consultation + medicines included",
     features: [
       "45–60 minute detailed discussion",
@@ -20,8 +21,8 @@ const plans = [
   },
   {
     name: "Follow-Up Visit",
-    price: "$29",
-    originalPrice: "$40",
+    priceUSD: 29,
+    originalPriceUSD: 40,
     subtitle: "Per session",
     features: [
       "Progress review",
@@ -37,6 +38,7 @@ const plans = [
 
 export default function Pricing() {
   const { open: openBooking } = useBooking();
+  const { formatPrice } = useRegion();
 
   return (
     <section id="pricing" className="bg-[#faf9f6] py-20 lg:py-28">
@@ -78,13 +80,13 @@ export default function Pricing() {
               <p className="text-sm text-[#8a8a8a] mb-6">{plan.subtitle}</p>
 
               <div className="mb-8 flex items-baseline gap-3">
-                {plan.originalPrice && (
+                {plan.originalPriceUSD && (
                   <span className="text-3xl font-bold text-[#c0392b] line-through">
-                    {plan.originalPrice}
+                    {formatPrice(plan.originalPriceUSD)}
                   </span>
                 )}
                 <span className="text-4xl font-bold text-[#2b2b2b]">
-                  {plan.price}
+                  {formatPrice(plan.priceUSD)}
                 </span>
               </div>
 
