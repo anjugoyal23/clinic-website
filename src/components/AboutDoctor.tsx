@@ -161,7 +161,7 @@ export default function AboutDoctor() {
                       State Registration
                     </p>
                     <p className="text-[14px] font-medium text-[#2b2b2b]">
-                      Haryana State Board of Homoeopathic Medicine
+                      Council of Homeopathic System of Medicine, Chandigarh
                     </p>
                   </div>
                 </div>

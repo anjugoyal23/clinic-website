@@ -2,17 +2,15 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { useBooking } from "@/components/BookingModal";
 
 const navLinks = [
-  { label: "Conditions", href: "/#conditions" },
-  { label: "How It Works", href: "/#how-it-works" },
-  { label: "Why Homeopathy", href: "/#why-homeopathy" },
-  { label: "About", href: "/#about" },
-  { label: "Online Consultation", href: "/online-consultation" },
+  { label: "Conditions", href: "#conditions" },
+  { label: "How It Works", href: "#how-it-works" },
+  { label: "Why Homeopathy", href: "#why-homeopathy" },
+  { label: "About", href: "#about" },
   { label: "Blog", href: "/blog" },
-  { label: "FAQ", href: "/#faq" },
+  { label: "FAQ", href: "#faq" },
 ];
 
 export default function Navbar() {
@@ -20,19 +18,15 @@ export default function Navbar() {
   const { open: openBooking } = useBooking();
 
   return (
-    <nav className="w-full bg-[#faf9f6] border-b border-[#e8e6e1]">
+    <nav className="w-full bg-[#faf9f6]/95 backdrop-blur-md border-b border-[#e8e6e1] sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-20">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
-          <Image
-            src="/logo.png"
-            alt="Dr. Anju's Homeo Clinic"
-            width={44}
-            height={44}
-            className="object-contain"
-          />
+        <Link href="/" className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-full bg-[#4a5d3a] flex items-center justify-center text-white font-semibold text-lg">
+            A
+          </div>
           <span className="text-xl font-semibold text-[#2b2b2b] tracking-tight">
-            Dr. Anju&apos;s Homeo Clinic
+            Dr. Anju&apos;s Homeo
           </span>
         </Link>
 
