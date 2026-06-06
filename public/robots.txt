@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://dranjuhomeoclinic.com/sitemap.xml
+Sitemap: https://dranjuhomeo.in/sitemap.xml

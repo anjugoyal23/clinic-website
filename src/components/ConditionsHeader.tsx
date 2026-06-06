@@ -1,8 +1,11 @@
+import Link from "next/link";
+
 const conditions = [
   {
     title: "Stop Hair Fall Naturally",
     description:
       "Regrow hair with safe, natural treatments that address internal causes.",
+    href: "/conditions/hair-fall",
     iconBg: "bg-[#fff3e0]",
     iconColor: "#e65100",
     icon: (
@@ -16,6 +19,7 @@ const conditions = [
     title: "Clear Skin Without Steroids",
     description:
       "Treat eczema, psoriasis, and acne from within — no harsh chemicals.",
+    href: "/conditions/eczema",
     iconBg: "bg-[#e0f2f1]",
     iconColor: "#00897b",
     icon: (
@@ -45,6 +49,7 @@ const conditions = [
     title: "Allergies & Asthma Relief",
     description:
       "Long-term relief from seasonal allergies, sinusitis, and asthma triggers.",
+    href: "/conditions/chronic-sinus-allergy",
     iconBg: "bg-[#e3f2fd]",
     iconColor: "#1565c0",
     icon: (
@@ -57,6 +62,7 @@ const conditions = [
     title: "Hormonal Balance",
     description:
       "PCOS, thyroid, menstrual issues — restore balance naturally.",
+    href: "/conditions/pcos",
     iconBg: "bg-[#fce4ec]",
     iconColor: "#c62828",
     icon: (
@@ -71,6 +77,7 @@ const conditions = [
     title: "Migraine & Headaches",
     description:
       "Reduce frequency and intensity of chronic migraines without painkillers.",
+    href: "/conditions/migraine",
     iconBg: "bg-[#fff8e1]",
     iconColor: "#bf360c",
     icon: (
@@ -131,6 +138,20 @@ const conditions = [
       </svg>
     ),
   },
+  {
+    title: "Child Recurrent Colds & Immunity",
+    description:
+      "Stop the cycle of antibiotics and recurring infections — build natural immunity.",
+    href: "/conditions/child-immunity",
+    iconBg: "bg-[#e8f5e9]",
+    iconColor: "#2e7d32",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        <path d="M9 12l2 2 4-4" />
+      </svg>
+    ),
+  },
 ];
 
 export default function ConditionsSection() {
@@ -153,29 +174,44 @@ export default function ConditionsSection() {
 
         {/* Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {conditions.map((condition) => (
-            <div
-              key={condition.title}
-              className={`rounded-2xl border px-8 py-8 flex flex-col gap-5 cursor-default transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-[#4a5d3a] ${
-                condition.highlighted
-                  ? "border-[#4a5d3a] shadow-md"
-                  : "border-transparent shadow-sm"
-              }`}
-            >
+          {conditions.map((condition) => {
+            const card = (
               <div
-                className={`w-12 h-12 rounded-xl ${condition.iconBg} flex items-center justify-center`}
-                style={{ color: condition.iconColor }}
+                key={condition.title}
+                className={`rounded-2xl border px-8 py-8 flex flex-col gap-5 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-[#4a5d3a] ${condition.href ? "cursor-pointer" : "cursor-default"} ${
+                  condition.highlighted
+                    ? "border-[#4a5d3a] shadow-md"
+                    : "border-transparent shadow-sm"
+                }`}
               >
-                {condition.icon}
+                <div
+                  className={`w-12 h-12 rounded-xl ${condition.iconBg} flex items-center justify-center`}
+                  style={{ color: condition.iconColor }}
+                >
+                  {condition.icon}
+                </div>
+                <h3 className="text-xl font-bold text-[#2b2b2b] font-[family-name:var(--font-playfair)]">
+                  {condition.title}
+                </h3>
+                <p className="text-[15px] text-[#6b6b6b] leading-relaxed">
+                  {condition.description}
+                </p>
+                {condition.href && (
+                  <span className="text-[13px] text-[#4a5d3a] font-medium mt-auto">
+                    Learn more →
+                  </span>
+                )}
               </div>
-              <h3 className="text-xl font-bold text-[#2b2b2b] font-[family-name:var(--font-playfair)]">
-                {condition.title}
-              </h3>
-              <p className="text-[15px] text-[#6b6b6b] leading-relaxed">
-                {condition.description}
-              </p>
-            </div>
-          ))}
+            );
+
+            return condition.href ? (
+              <Link key={condition.title} href={condition.href} className="no-underline">
+                {card}
+              </Link>
+            ) : (
+              card
+            );
+          })}
         </div>
       </div>
     </section>

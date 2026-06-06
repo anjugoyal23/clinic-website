@@ -22,6 +22,7 @@ export async function generateMetadata({
   return {
     title: `${post.title} — Dr. Anju's Homeo Clinic`,
     description: post.excerpt,
+    keywords: post.keywords,
   };
 }
 
@@ -108,7 +109,7 @@ export default async function BlogPostPage({
             {/* Back Link */}
             <div className="mt-14 pt-8 border-t border-[#e8e6e1]">
               <Link
-                href="/#blog"
+                href="/blog"
                 className="inline-flex items-center gap-2 text-sm font-semibold text-[#4a5d3a] hover:-translate-x-1 transition-transform"
               >
                 <svg

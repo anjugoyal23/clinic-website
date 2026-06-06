@@ -1,19 +1,29 @@
 import Link from "next/link";
 
 const quickLinks = [
-  { label: "Conditions", href: "#conditions" },
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "Why Homeopathy", href: "#why-homeopathy" },
-  { label: "About", href: "#about" },
-  { label: "Blog", href: "#blog" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Conditions", href: "/#conditions" },
+  { label: "How It Works", href: "/#how-it-works" },
+  { label: "Why Homeopathy", href: "/#why-homeopathy" },
+  { label: "About", href: "/#about" },
+  { label: "Online Consultation", href: "/online-consultation" },
+  { label: "Blog", href: "/blog" },
+  { label: "FAQ", href: "/#faq" },
+];
+
+const conditionLinks = [
+  { label: "Eczema & Skin", href: "/conditions/eczema" },
+  { label: "PCOS & Hormones", href: "/conditions/pcos" },
+  { label: "Hair Fall", href: "/conditions/hair-fall" },
+  { label: "Sinus & Allergy", href: "/conditions/chronic-sinus-allergy" },
+  { label: "Migraine", href: "/conditions/migraine" },
+  { label: "Child Immunity", href: "/conditions/child-immunity" },
 ];
 
 export default function Footer() {
   return (
     <footer className="bg-[#2b2b2b] text-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-5">
@@ -38,6 +48,25 @@ export default function Footer() {
             </h3>
             <ul className="flex flex-col gap-3">
               {quickLinks.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-[15px] text-[#a0a0a0] hover:text-white transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Conditions */}
+          <div>
+            <h3 className="text-xs tracking-[0.2em] uppercase font-semibold mb-6">
+              Conditions
+            </h3>
+            <ul className="flex flex-col gap-3">
+              {conditionLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}

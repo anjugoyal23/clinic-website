@@ -5,6 +5,7 @@ readTime: "4 min read"
 excerpt: "Anxiety doesn't have to control your life. Learn how homeopathy, combined with lifestyle changes, can bring lasting calm and mental clarity."
 image: "/blog2.jpg"
 date: "2026-03-05"
+keywords: ["anxiety homeopathy treatment", "natural anxiety relief", "manage anxiety without medication", "homeopathy for stress", "mental wellness homeopathy"]
 ---
 
 ## Living with Anxiety

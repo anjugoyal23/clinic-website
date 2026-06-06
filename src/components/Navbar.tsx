@@ -6,12 +6,13 @@ import Image from "next/image";
 import { useBooking } from "@/components/BookingModal";
 
 const navLinks = [
-  { label: "Conditions", href: "#conditions" },
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "Why Homeopathy", href: "#why-homeopathy" },
-  { label: "About", href: "#about" },
+  { label: "Conditions", href: "/#conditions" },
+  { label: "How It Works", href: "/#how-it-works" },
+  { label: "Why Homeopathy", href: "/#why-homeopathy" },
+  { label: "About", href: "/#about" },
+  { label: "Online Consultation", href: "/online-consultation" },
   { label: "Blog", href: "/blog" },
-  { label: "FAQ", href: "#faq" },
+  { label: "FAQ", href: "/#faq" },
 ];
 
 export default function Navbar() {

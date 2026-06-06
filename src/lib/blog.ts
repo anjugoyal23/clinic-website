@@ -14,6 +14,7 @@ export type BlogPost = {
   excerpt: string;
   image: string;
   date: string;
+  keywords: string[];
   content: string;
 };
 
@@ -38,6 +39,7 @@ export function getAllPosts(): BlogPostMeta[] {
       excerpt: data.excerpt || "",
       image: data.image || "",
       date: data.date || "",
+      keywords: data.keywords || [],
     };
   });
 
@@ -66,6 +68,7 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
     excerpt: data.excerpt || "",
     image: data.image || "",
     date: data.date || "",
+    keywords: data.keywords || [],
     content: htmlContent,
   };
 }
