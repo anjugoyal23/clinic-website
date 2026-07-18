@@ -6,7 +6,7 @@ import { useRegion } from "@/components/RegionContext";
 const plans = [
   {
     name: "First Consultation",
-    priceUSD: 29,
+    priceUSD: 39,
     originalPriceUSD: 60,
     subtitle: "Consultation + medicines included",
     features: [
@@ -21,7 +21,7 @@ const plans = [
   },
   {
     name: "Follow-Up Visit",
-    priceUSD: 19,
+    priceUSD: 29,
     originalPriceUSD: 40,
     subtitle: "Per session",
     features: [
