@@ -16,8 +16,8 @@ const RegionContext = createContext<RegionContextType | null>(null);
 const INR_PRICES: Record<number, number> = {
   60: 2500,
   40: 1800,
-  39: 1500,
-  29: 1000,
+  29: 900,
+  29: 800,
 };
 
 export function RegionProvider({ children }: { children: ReactNode }) {
