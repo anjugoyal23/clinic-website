@@ -17,7 +17,7 @@ const INR_PRICES: Record<number, number> = {
   60: 2500,
   40: 1800,
   29: 900,
-  29: 800,
+  19: 800,
 };
 
 export function RegionProvider({ children }: { children: ReactNode }) {
