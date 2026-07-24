@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, DM_Sans } from "next/font/google";
 import "./globals.css";
 import ClientProviders from "@/components/ClientProviders";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -16,23 +17,9 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Dr. Anju's Homeo Clinic — Healing & Root Cause Treatment",
+  title: "Dr. Anju's Homeo — Natural Healing & Root Cause Treatment",
   description:
     "23+ Years of Experience in Helping Patients Recover from Chronic Conditions — Safely and Naturally. Book your consultation today.",
-  openGraph: {
-    title: "Dr. Anju's Homeo Clinic — Healing & Root Cause Treatment",
-    description:
-      "23+ Years of Experience in Helping Patients Recover from Chronic Conditions — Safely and Naturally. Book your consultation today.",
-    type: "website",
-    locale: "en_US",
-    siteName: "Dr. Anju's Homeo Clinic",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Dr. Anju's Homeo Clinic — Healing & Root Cause Treatment",
-    description:
-      "23+ Years of Experience in Helping Patients Recover from Chronic Conditions — Safely and Naturally.",
-  },
 };
 
 export default function RootLayout({
@@ -45,6 +32,7 @@ export default function RootLayout({
       lang="en"
       className={`${playfair.variable} ${dmSans.variable} h-full antialiased`}
     >
+      <GoogleTagManager gtmId="GTM-MLSRJRP4" />
       <body className="min-h-full flex flex-col">
         <ClientProviders>{children}</ClientProviders>
       </body>
