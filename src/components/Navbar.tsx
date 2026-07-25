@@ -46,6 +46,7 @@ export default function Navbar() {
         {/* Book Appointment Button */}
         <button
           onClick={openBooking}
+          data-analytics="book-appointment-click"
           className="hidden lg:inline-flex items-center px-6 py-2.5 rounded-full bg-[#4a5d3a] text-white text-sm font-medium hover:bg-[#3d4e30] hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300 cursor-pointer"
         >
           Book Appointment
@@ -84,6 +85,7 @@ export default function Navbar() {
           ))}
           <button
             className="inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-[#4a5d3a] text-white text-sm font-medium hover:bg-[#3d4e30] transition-colors mt-2 cursor-pointer"
+            data-analytics="book-appointment-click"
             onClick={() => { setMobileOpen(false); openBooking(); }}
           >
             Book Appointment

@@ -30,10 +30,9 @@ export function BookingProvider({ children }: { children: React.ReactNode }) {
 
 function BookingModal({ onClose }: { onClose: () => void }) {
   const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
   const [formData, setFormData] = useState({
     name: "",
+    email: "",
     phone: "",
     condition: "",
     preferredDate: "",
@@ -48,23 +47,13 @@ function BookingModal({ onClose }: { onClose: () => void }) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
-    setError("");
-    try {
-      const res = await fetch("/api/book", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-      if (!res.ok) throw new Error("Failed to book");
-      setSubmitted(true);
-    } catch {
-      setError("Something went wrong. Please try again or contact us on WhatsApp.");
-    } finally {
-      setLoading(false);
-    }
+    // Store in localStorage as a simple backend-free solution
+    const bookings = JSON.parse(localStorage.getItem("bookings") || "[]");
+    bookings.push({ ...formData, submittedAt: new Date().toISOString() });
+    localStorage.setItem("bookings", JSON.stringify(bookings));
+    setSubmitted(true);
   };
 
   const conditions = [
@@ -155,7 +144,7 @@ function BookingModal({ onClose }: { onClose: () => void }) {
               </h3>
             </div>
 
-            <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-5" data-analytics="book-form">
               {/* Name */}
               <div>
                 <label
@@ -176,24 +165,44 @@ function BookingModal({ onClose }: { onClose: () => void }) {
                 />
               </div>
 
-              {/* Phone */}
-              <div>
-                <label
-                  htmlFor="phone"
-                  className="block text-sm font-medium text-[#4a4a4a] mb-1.5"
-                >
-                  Phone
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  required
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-xl border border-[#e0dfda] bg-[#faf9f6] text-[#2b2b2b] text-sm focus:outline-none focus:border-[#4a5d3a] focus:ring-1 focus:ring-[#4a5d3a] transition-colors"
-                  placeholder="+91 99140 99036"
-                />
+              {/* Email + Phone row */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-[#4a4a4a] mb-1.5"
+                  >
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-xl border border-[#e0dfda] bg-[#faf9f6] text-[#2b2b2b] text-sm focus:outline-none focus:border-[#4a5d3a] focus:ring-1 focus:ring-[#4a5d3a] transition-colors"
+                    placeholder="you@email.com"
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="phone"
+                    className="block text-sm font-medium text-[#4a4a4a] mb-1.5"
+                  >
+                    Phone
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    required
+                    value={formData.phone}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-xl border border-[#e0dfda] bg-[#faf9f6] text-[#2b2b2b] text-sm focus:outline-none focus:border-[#4a5d3a] focus:ring-1 focus:ring-[#4a5d3a] transition-colors"
+                    placeholder="+91 99140 99036"
+                  />
+                </div>
               </div>
 
               {/* Condition + Preferred Date row */}
@@ -260,15 +269,12 @@ function BookingModal({ onClose }: { onClose: () => void }) {
               </div>
 
               {/* Submit */}
-              {error && (
-                <p className="text-sm text-red-600 text-center">{error}</p>
-              )}
               <button
                 type="submit"
-                disabled={loading}
-                className="w-full py-3.5 rounded-full bg-[#4a5d3a] text-white font-semibold text-base hover:-translate-y-0.5 hover:shadow-lg hover:bg-[#3d4e30] transition-all duration-300 mt-1 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+                data-analytics="book-form-submit"
+                className="w-full py-3.5 rounded-full bg-[#4a5d3a] text-white font-semibold text-base hover:-translate-y-0.5 hover:shadow-lg hover:bg-[#3d4e30] transition-all duration-300 mt-1 cursor-pointer"
               >
-                {loading ? "Booking..." : "Book Consultation"}
+                Book Consultation
               </button>
             </form>
           </div>

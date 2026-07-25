@@ -20,15 +20,16 @@ export default function CTASection() {
 
         <p className="text-lg text-white/75 leading-relaxed mb-10 max-w-2xl mx-auto">
           Don&apos;t let chronic conditions hold you back. Take the first step
-          towards natural, lasting healing with a personalised consultation.
+          towards natural, lasting healing with a personalized consultation.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button
             onClick={openBooking}
+            data-analytics="book-appointment-click"
             className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-[#4a5d3a] text-base font-semibold hover:-translate-y-1 hover:shadow-xl transition-all duration-300 cursor-pointer"
           >
-            Book Consultation
+            Book Free Consultation
             <svg
               width="16"
               height="16"
@@ -46,7 +47,7 @@ export default function CTASection() {
             </svg>
           </button>
           <a
-            href="https://wa.me/919914099036"
+            href="https://wa.me/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border-2 border-white/40 text-white text-base font-semibold hover:bg-white/10 hover:-translate-y-1 hover:shadow-xl transition-all duration-300"

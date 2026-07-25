@@ -31,6 +31,7 @@ export default function ConditionContent({
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={openBooking}
+              data-analytics="book-appointment-click"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#4a5d3a] text-white text-base font-medium hover:bg-[#3d4e30] hover:-translate-y-1 hover:shadow-lg transition-all duration-300 cursor-pointer"
             >
               Book Consultation
@@ -265,6 +266,7 @@ export default function ConditionContent({
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={openBooking}
+              data-analytics="book-appointment-click"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-[#4a5d3a] text-base font-semibold hover:-translate-y-1 hover:shadow-lg transition-all duration-300 cursor-pointer"
             >
               Book Consultation

@@ -12,7 +12,7 @@ export default function Hero() {
         {/* Left Content */}
         <div className="flex-1 max-w-xl">
           <p className="text-xs tracking-[0.2em] uppercase text-[#7a7a6d] font-medium mb-6">
-            Natural Healing · For Modern Life
+            Natural Healing · Root Cause Treatment
           </p>
 
           <h1 className="text-5xl lg:text-6xl font-bold leading-[1.1] mb-6 font-[family-name:var(--font-playfair)]">
@@ -30,6 +30,7 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row gap-4">
             <button
               onClick={openBooking}
+              data-analytics="book-appointment-click"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#4a5d3a] text-white text-base font-medium hover:bg-[#3d4e30] hover:-translate-y-1 hover:shadow-lg transition-all duration-300 cursor-pointer"
             >
               Book Online Consultation
@@ -50,7 +51,7 @@ export default function Hero() {
               </svg>
             </button>
             <a
-              href="https://wa.me/919914099036"
+              href="https://wa.me/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border-2 border-[#c5c4be] text-[#4a4a4a] text-base font-medium hover:border-[#4a5d3a] hover:text-[#4a5d3a] hover:-translate-y-1 hover:shadow-lg transition-all duration-300 bg-transparent"
@@ -77,7 +78,7 @@ export default function Hero() {
           <div className="relative">
             <div className="w-[340px] h-[420px] sm:w-[400px] sm:h-[500px] rounded-3xl overflow-hidden shadow-lg">
               <Image
-                src="/hero-page.png"
+                src="/hero-plant.jpg"
                 alt="Natural healing herbs"
                 fill
                 className="object-cover"
