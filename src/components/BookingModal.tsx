@@ -103,7 +103,7 @@ function BookingModal({ onClose }: { onClose: () => void }) {
 
         {submitted ? (
           /* Success State */
-          <div className="px-8 py-16 text-center">
+          <div className="px-8 py-16 text-center" data-analytics="book-form-success">
             <div className="w-16 h-16 rounded-full bg-[#4a5d3a] flex items-center justify-center mx-auto mb-6">
               <svg
                 width="28"
