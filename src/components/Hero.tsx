@@ -31,26 +31,26 @@ export default function Hero() {
             <button
               onClick={openBooking}
               data-analytics="book-appointment-click"
-              className="inline-flex flex-col items-center justify-center px-8 py-4 rounded-full bg-[#4a5d3a] text-white font-medium hover:bg-[#3d4e30] hover:-translate-y-1 hover:shadow-lg transition-all duration-300 cursor-pointer"
+              className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-[#4a5d3a] text-white font-medium hover:bg-[#3d4e30] hover:-translate-y-1 hover:shadow-lg transition-all duration-300 cursor-pointer"
             >
-              <span className="text-base font-bold flex items-center gap-2">
-                Book Consultation
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                >
-                  <path
-                    d="M3 8h10M9 4l4 4-4 4"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+              <span className="flex flex-col">
+                <span className="text-base font-bold">Book Consultation</span>
+                <span className="text-sm font-semibold tracking-wide">Online / In-Clinic</span>
               </span>
-              <span className="text-sm font-semibold tracking-wide mt-0.5">Online / In-Clinic</span>
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 16 16"
+                fill="none"
+              >
+                <path
+                  d="M3 8h10M9 4l4 4-4 4"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
             </button>
             <a
               href="https://wa.me/"
