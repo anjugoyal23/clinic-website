@@ -33,7 +33,8 @@ export default function Hero() {
               data-analytics="book-appointment-click"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#4a5d3a] text-white text-base font-medium hover:bg-[#3d4e30] hover:-translate-y-1 hover:shadow-lg transition-all duration-300 cursor-pointer"
             >
-              Book Online Consultation
+              Book Consultation
+              <span className="text-base font-bold ml-1">(Online / In-Clinic)</span>
               <svg
                 width="16"
                 height="16"
@@ -76,11 +77,12 @@ export default function Hero() {
         {/* Right Image */}
         <div className="flex-1 relative flex justify-center lg:justify-end">
           <div className="relative">
-            <div className="w-[340px] h-[420px] sm:w-[400px] sm:h-[500px] rounded-3xl overflow-hidden shadow-lg">
+            <div className="w-[340px] h-[420px] sm:w-[400px] sm:h-[500px] rounded-3xl overflow-hidden shadow-lg relative">
               <Image
-                src="/hero-plant.jpg"
+                src="/hero-page.png"
                 alt="Natural healing herbs"
                 fill
+                sizes="(max-width: 640px) 340px, 400px"
                 className="object-cover"
                 priority
               />

@@ -26,7 +26,7 @@ export default function Navbar() {
             A
           </div>
           <span className="text-xl font-semibold text-[#2b2b2b] tracking-tight">
-            Dr. Anju&apos;s Homeo
+            Dr. Anju&apos;s Homeo Clinic
           </span>
         </Link>
 
